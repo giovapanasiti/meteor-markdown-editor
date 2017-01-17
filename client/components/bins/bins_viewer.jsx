@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import {markdown} from 'markdown';
 
 class BinsViewer extends Component {
     render(){
