@@ -12,6 +12,14 @@ Meteor.methods({
     },
     'bins.remove': function(bin) {
         return Bins.remove(bin);
+    },
+    'bins.update': function(bin, content){
+        return Bins.update(bin._id, {
+            $set: {
+                content: content
+            }
+        });
+        // What im saying: i want to find the bin with bin._id and update it's content with newContent
     }
 })
 
