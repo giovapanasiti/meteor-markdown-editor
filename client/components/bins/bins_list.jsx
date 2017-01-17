@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {createContainer} from 'meteor/react-meteor-data';
 import {Bins} from '../../../imports/collections/bins';
+import {Link} from 'react-router';
 
 class BinsLists extends Component {
     onBinRemove(bin) {
@@ -9,14 +10,21 @@ class BinsLists extends Component {
 
     renderList() {
         return this.props.bins.map(bin=>{
+
+            const url = `/bins/${bin._id}`;
+
             return (
                 <li className="list-group-item" key={bin._id}>
-                    <strong>Bin:</strong> {bin._id}
-                    <span className="pull-right">
-                        <button className="btn btn-danger" onClick={()=>{this.onBinRemove(bin)}}>
-                            Remove
-                        </button>
-                    </span>
+                    
+                    <strong>Bin:</strong> 
+                        <Link to={url}>
+                            {bin._id}
+                        </Link>
+                        <span className="pull-right">
+                            <button className="btn btn-danger" onClick={()=>{this.onBinRemove(bin)}}>
+                                Remove
+                            </button>
+                        </span>
                 </li>
             )
         })
