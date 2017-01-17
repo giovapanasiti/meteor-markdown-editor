@@ -9,6 +9,9 @@ Meteor.methods({
             sharedWith: [],
             ownerId: this.userId
         });
+    },
+    'bins.remove': function(bin) {
+        return Bins.remove(bin);
     }
 })
 
