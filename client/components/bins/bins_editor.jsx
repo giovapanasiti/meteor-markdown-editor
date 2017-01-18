@@ -17,6 +17,7 @@ class BinsEditor extends Component {
     }
 
     render(){
+        
         return(
             <div className="col-xs-8">
                    <h5>Input</h5>
@@ -30,7 +31,8 @@ class BinsEditor extends Component {
                    <CodeMirror 
                    value={this.props.bin.content}
                    onChange={this.onEditorChange.bind(this)} 
-                   options={{ mode: 'markdown', lineNumbers: true }} className="height-editor" />
+                   options={{ mode: 'markdown', lineNumbers: true }} 
+                   className="height-editor" />
             </div>
         );
     }

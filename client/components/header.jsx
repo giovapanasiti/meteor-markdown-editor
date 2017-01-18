@@ -19,13 +19,16 @@ class Header extends Component {
             <nav className="navbar-default nav">
             <div className="container-fluid">
                 <div className="navbar-header">
-                    <Link to="/" className="navbar-brand">Markbin</Link>
+                    <Link to="/" className="navbar-brand">Markdown Notes</Link>
                 </div>
                 <ul className="nav navbar-nav">
                     <li>
                         <a>
                             <Accounts />
                         </a>
+                    </li>
+                    <li>
+                        <a href="/">Your bins</a>
                     </li>
                     <li>
                         <a href="/shared">Shared with you</a>
