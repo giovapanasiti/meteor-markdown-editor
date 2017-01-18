@@ -6,6 +6,7 @@ import BinsMain from './components/bins/bins_main';
 import BinsList from './components/bins/bins_list';
 
 import {Bins} from '../imports/collections/bins';
+import BinsSharedList from './components/bins/bins_shared';
 
 
 
@@ -14,6 +15,7 @@ const routes = (
         <Route path="/" component={App}>
             <IndexRoute component={BinsList} />
             <Route path="bins/:binId" component={BinsMain}></Route>
+            <Route path="shared" component={BinsSharedList}></Route>
         </Route>
     </Router>
 );

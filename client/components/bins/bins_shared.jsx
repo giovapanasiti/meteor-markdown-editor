@@ -3,16 +3,11 @@ import {createContainer} from 'meteor/react-meteor-data';
 import {Bins} from '../../../imports/collections/bins';
 import {Link} from 'react-router';
 
-class BinsLists extends Component {
+class BinsSharedLists extends Component {
     onBinRemove(bin) {
-        if (confirm('Are you sure you want to remove this bin forever?')) {
-    // Save it!
-            Meteor.call('bins.remove', bin);
-        } else {
-    // Do nothing!
-            return
-        }
-        
+        // Meteor.call('bins.remove', bin);
+        // TODO
+        /* this should call an "unshare" method */
     }
 
     renderList() {
@@ -21,21 +16,24 @@ class BinsLists extends Component {
             const url = `/bins/${bin._id}`;
 
             return (
-                
+                <div>
+                    
                     <li className="list-group-item" key={bin._id}>
                     
-                    <strong>{bin.title}  </strong> 
-                    <span className="label label-success">{bin._id}</span>    
+                    <strong>Bin:  </strong> 
+                        <Link to={url}>
+                           {bin.title} - <small>{bin._id}</small>
+                        </Link>
+                        <span class="label label-success">{bin._id}</span>
                         
-                        <span className="pull-right btn-group">
+                        <span className="pull-right">
                             <button className="btn btn-danger" onClick={()=>{this.onBinRemove(bin)}}>
                                 Remove
                             </button>
-                            <Link to={url} className="btn btn-primary">
-                                Edit <i className="glyphicon glyphicon-pencil"></i>
-                            </Link>
                         </span>
                     </li>
+                
+                </div>
                 
             )
         })
@@ -44,10 +42,10 @@ class BinsLists extends Component {
         console.log(this.props.bins);
         return(
             <div className="container">
-                <ul className="list-group">
-                    <h2>Yours Bin</h2>
-                    {this.renderList()}
-                </ul>
+            <ul className="list-group">
+                <h2>Bins Shared with You</h2>
+                {this.renderList()}
+            </ul>
             </div>
         )
     }
@@ -55,7 +53,7 @@ class BinsLists extends Component {
 
 
 export default createContainer( ()=>{ 
-    Meteor.subscribe('bins'); /*this is going to be passed as props*/
-    // Meteor.subscribe('sharedBins');
+    // Meteor.subscribe('bins'); /*this is going to be passed as props*/
+    Meteor.subscribe('sharedBins');
     return { bins: Bins.find().fetch()}
-}, BinsLists )
+}, BinsSharedLists )

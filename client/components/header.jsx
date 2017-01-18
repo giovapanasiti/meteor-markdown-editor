@@ -17,6 +17,7 @@ class Header extends Component {
     render() {
         return(
             <nav className="navbar-default nav">
+            <div className="container-fluid">
                 <div className="navbar-header">
                     <Link to="/" className="navbar-brand">Markbin</Link>
                 </div>
@@ -27,9 +28,18 @@ class Header extends Component {
                         </a>
                     </li>
                     <li>
-                        <a href="#" onClick={this.onBinClick.bind(this)} >Create Bin</a>
+                        <a href="/shared">Shared with you</a>
                     </li>
                 </ul>
+
+                <ul className="navbar-right nav navbar-nav">
+                    <li>
+                        <a href="#" onClick={this.onBinClick.bind(this)} className="" title="create new" alt="create new">
+                            <i className="glyphicon glyphicon-plus-sign btn-success btn btn-circle"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
             </nav>
         );
     }

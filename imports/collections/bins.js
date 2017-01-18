@@ -5,6 +5,7 @@ Meteor.methods({
         /* if we use the "fat arrow function"" it breaks the value of this.userId */
         return Bins.insert({
             createdAt: new Date(),
+            title:'',
             content: '',
             sharedWith: [],
             ownerId: this.userId
@@ -17,6 +18,14 @@ Meteor.methods({
         return Bins.update(bin._id, {
             $set: {
                 content: content
+            }
+        });
+        // What im saying: i want to find the bin with bin._id and update it's content with newContent
+    },
+    'bins.update-title': function(bin, title){
+        return Bins.update(bin._id, {
+            $set: {
+                title: title
             }
         });
         // What im saying: i want to find the bin with bin._id and update it's content with newContent

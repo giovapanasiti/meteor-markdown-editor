@@ -2,8 +2,8 @@
     height: 55px;
 }
 
-.bins-share {
-    position: absolute;
+/*.bins-share {
+    position: fixed;
     bottom: 0;
     
     display: flex;
@@ -19,4 +19,25 @@
 
 .bins-share >div {
     margin: 0 10px;
+}*/
+
+.button-share {
+    position: absolute;
+    bottom: 0;
+    right:0;
+    margin: 20px;
+}
+
+.modal-body {
+    min-height: 400px;
+}
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
 }
