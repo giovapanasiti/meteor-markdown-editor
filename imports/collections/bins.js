@@ -20,6 +20,12 @@ Meteor.methods({
             }
         });
         // What im saying: i want to find the bin with bin._id and update it's content with newContent
+    },
+    'bins.share': function(bin, email) {
+        return Bins.update(bin._id, {
+            $push: { sharedWith: email }
+            // push just push a new record into the array
+        });
     }
 })
 
