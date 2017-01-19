@@ -24,3 +24,7 @@ accounts-ui
 accounts-password
 sgslo:cmstyle
 patrickml:react-quill
+aldeed:simple-schema
+matb33:collection-hooks
+
+dburles:collection-helpers

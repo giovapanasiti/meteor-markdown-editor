@@ -1,6 +1,8 @@
 import { Meteor } from 'meteor/meteor';
 import {Bins} from '../imports/collections/bins';
 import {BinsMark} from '../imports/collections/bins-mark';
+import {Projects} from '../imports/collections/projects';
+import {Tasks} from '../imports/collections/tasks';
 
 
 Meteor.startup(() => {
@@ -26,8 +28,6 @@ Meteor.startup(() => {
     });
     // looks all the different bins we have, look at the sharedWith 
     // at each. Walk through that array and search which one match "email"
-    
-
   });
 
   Meteor.publish('sharedBinsMark', function(){
@@ -42,7 +42,19 @@ Meteor.startup(() => {
     });
     // looks all the different bins we have, look at the sharedWith 
     // at each. Walk through that array and search which one match "email"
-    
-
   });
+
+  // Projects
+
+  Meteor.publish('projects', function(){
+    return Projects.find({ownerId: this.userId});
+  });
+
+  Meteor.publish('tasks', function(){
+    return Tasks.find({ownerId: this.userId});
+  });
+
+
 });
+
+
