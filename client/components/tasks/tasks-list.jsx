@@ -34,9 +34,12 @@ class TaskList extends Component {
           <li key={task._id} className="list-group-item">
             <input type="checkbox" checked={task.isChecked} onChange={() => this.setIsChecked(task, task.isChecked)}/>
             {task.title}
-            <span className="pull-right">
-              <button className="btn btn-danger" onClick={()=>{this.removeTask(task)}}>X</button>
-            </span>
+              <span className="pull-right">
+                <div className="btn-group" role="group" aria-label="...">
+                  <button className="btn btn-success" type="button">Expand</button>
+                  <button className="btn btn-danger" onClick={()=>{this.removeTask(task)}}>X</button>
+                </div>
+              </span>
           </li>
         )
       })
