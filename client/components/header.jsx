@@ -20,7 +20,7 @@ class Header extends Component {
         Meteor.call('binsMark.insert', (error, binId)=>{
             
             // react router redirect:
-            browserHistory.push(`/bins/markdown/${binId}`)
+            browserHistory.push(`/markdown/${binId}`)
         });    
     }
 
@@ -36,7 +36,7 @@ class Header extends Component {
             <nav className="navbar-default nav">
             <div className="container-fluid">
                 <div className="navbar-header">
-                    <Link to="/" className="navbar-brand">Markdown Notes</Link>
+                    <Link to="/" className="navbar-brand">Open Collaboration</Link>
                 </div>
                 <ul className="nav navbar-nav">
                     <li>
@@ -45,13 +45,13 @@ class Header extends Component {
                         </a>
                     </li>
                     <li>
-                        <a href="/bins">Your bins</a>
+                        <Link to="/bins">Your bins</Link>
                     </li>
                     <li>
-                        <a href="/shared">Shared Bins</a>
+                        <Link to="/shared">Shared Bins</Link>
                     </li>
                     <li>
-                        <a href="/projects">Your Projects</a>
+                        <Link to="/projects">Your Projects</Link>
                     </li>
                 </ul>
 

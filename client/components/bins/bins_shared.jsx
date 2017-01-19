@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {createContainer} from 'meteor/react-meteor-data';
 import {Bins} from '../../../imports/collections/bins';
 import {Link} from 'react-router';
+import BinsSharedListsMark from '../bins-markdown/bins_shared_mark';
+
 
 class BinsSharedLists extends Component {
     onBinRemove(bin) {
@@ -13,26 +15,21 @@ class BinsSharedLists extends Component {
     renderList() {
         return this.props.bins.map(bin=>{
 
-            const url = `/bins/${bin._id}`;
+            const url = `/bin/${bin._id}`;
 
             return (
-                <div>
-                    <li className="list-group-item" key={bin._id}>
+                <li className="list-group-item" key={bin._id}>
                     
-                    <strong>Bin:  </strong> 
-                        <Link to={url}>
-                           {bin.title} - <small>{bin._id}</small>
-                        </Link>
-                        <span class="label label-success">{bin._id}</span>
+                    <strong>{bin.title}  </strong> 
+                    <span className="label label-success">{bin._id}</span>    
                         
-                        <span className="pull-right">
-                            <button className="btn btn-danger" onClick={()=>{this.onBinRemove(bin)}}>
-                                Remove
-                            </button>
+                        <span className="pull-right btn-group">
+                            
+                            <Link to={url} className="btn btn-primary">
+                                Write <i className="glyphicon glyphicon-pencil"></i>
+                            </Link>
                         </span>
                     </li>
-                
-                </div>
                 
             )
         })
@@ -40,15 +37,20 @@ class BinsSharedLists extends Component {
     render() {
         console.log(this.props.bins);
         return(
-            <div className="container">
+            <div className="">
                 <div className="alert alert-danger" role="alert">
                     <h2>There are some problems</h2>
                     <p>This feature still not works very good at the moment for the markdown bins. It'll be update soon!</p>
                 </div>
+                <h2>Visual Bins Shared with You</h2>
                 <ul className="list-group">
-                    <h2>Bins Shared with You</h2>
+                    
                     {this.renderList()}
                 </ul>
+
+                <hr/>
+                <BinsSharedListsMark />
+
             </div>
         )
     }

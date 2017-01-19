@@ -15,6 +15,8 @@ class ProjectsHome extends Component {
         }
     }
 
+    
+
     onProjectSave(event) {
         event.preventDefault();
         console.log('onProjectSave');
@@ -27,22 +29,27 @@ class ProjectsHome extends Component {
             const url = `/project/${project._id}`;
 
             return (
-                
-                    <li className="list-group-item" key={project._id}>
-                    
-                    <strong>{project.title}  </strong> 
-                    <span className="label label-success">{project._id}</span>    
+
+                <div className="panel panel-default" key={project._id}>
+                    <div className="panel-heading">
+                        <h3 className="panel-title">{project.title}</h3>
                         
-                        <span className="pull-right btn-group">
-                            <button className="btn btn-danger" onClick={()=>{this.onProjectRemove(project)}}>
-                                Remove
-                            </button>
+                    </div>
+                    <div className="panel-body">
+                        <p>{project.description}</p>
+                        
+                    </div>
+                    <div className="panel-footer">
+                        
+                        <span className="btn-group">
                             <Link to={url} className="btn btn-primary">
-                                Edit <i className="glyphicon glyphicon-pencil"></i>
+                                Work <i className="glyphicon glyphicon-pencil"></i>
                             </Link>
                         </span>
-                    </li>
-                
+                        
+                    </div>
+                </div>
+
             )
         })
     }
@@ -55,9 +62,15 @@ class ProjectsHome extends Component {
 
             <div className="container">
                 <ul className="list-group">
-                    <h2>Your Projects
-                    <button className="btn btn-success" data-toggle="modal" data-target="#newProject">New Project</button> </h2>
-                    {this.renderList()}
+                    <h2>Your Projects    
+                    <button className="btn btn-success" data-toggle="modal" data-target="#newProject">New Project</button> 
+                    </h2>
+
+                    <div className="gallery">
+                        {this.renderList()}
+                    </div>
+
+
                 </ul>
             </div>
 
