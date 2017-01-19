@@ -9,8 +9,18 @@ Meteor.methods({
             createdAt: new Date(),
             title:title,
             projectId: projectId,
+            isChecked: false,
             sharedWith: [],
             ownerId: this.userId
+        });
+    },
+    'task.checked': function(task, isChecked){
+        console.log('task: ', task);
+        console.log('isChecked:  ', isChecked);
+        return Tasks.update(task._id, {
+            $set: {
+                isChecked: !isChecked
+            }
         });
     },
 });

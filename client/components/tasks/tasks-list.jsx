@@ -8,14 +8,21 @@ class TaskList extends Component {
 
     saveTask(e){
       e.preventDefault();
-      Meteor.call('task.insert', this.refs.singleTask.value, this.props.projectId)
+      Meteor.call('task.insert', this.refs.singleTask.value, this.props.projectId);
+      this.refs.singleTask.value='';
+    }
+
+    setIsChecked(task, isChecked) {
+      console.log('chiamata is check')
+       Meteor.call('task.checked', task, isChecked);
     }
 
     renderTasks() {
       return this.props.tasks.map(task=>{
         return (
-          <li key={task.projectId}>
-            {task.title} - {task.projectId}
+          <li key={task._id}>
+            <input type="checkbox" checked={task.isChecked} onChange={() => this.setIsChecked(task, task.isChecked)}/>
+            {task.title} - {task.projectId} - {task._id}
           </li>
         )
       })
@@ -29,12 +36,14 @@ class TaskList extends Component {
         
         return(
             <div className="">
-              <input type="text" className="form-control" ref="singleTask"/>
+              <input type="text" className="form-control" ref="singleTask" />
               <button className="btn btn-success" onClick={this.saveTask.bind(this)}>Save</button>
               
               <hr/>
-
-              {this.renderTasks()}
+              <ul className="list-group">
+                {this.renderTasks()}
+              </ul>
+              
             </div>
         )
     }
