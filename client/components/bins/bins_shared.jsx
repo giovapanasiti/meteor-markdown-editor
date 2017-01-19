@@ -17,9 +17,6 @@ class BinsSharedLists extends Component {
 
             return (
                 <div>
-
-                
-                    
                     <li className="list-group-item" key={bin._id}>
                     
                     <strong>Bin:  </strong> 

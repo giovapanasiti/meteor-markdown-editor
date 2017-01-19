@@ -3,7 +3,7 @@ import {createContainer} from 'meteor/react-meteor-data';
 import {BinsMark} from '../../../imports/collections/bins-mark';
 import BinsEditorMark from './bins_editor_mark';
 import BinsViewer from './bins_viewer';
-import BinsShare from './bins_share';
+import BinsShare from '../bins/bins_share';
 
 class BinsMainMarkdown extends Component {
     render(){

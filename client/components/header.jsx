@@ -20,7 +20,7 @@ class Header extends Component {
         Meteor.call('binsMark.insert', (error, binId)=>{
             
             // react router redirect:
-            browserHistory.push(`/markdown/${binId}`)
+            browserHistory.push(`/bins/markdown/${binId}`)
         });    
     }
 
@@ -45,7 +45,7 @@ class Header extends Component {
                         </a>
                     </li>
                     <li>
-                        <a href="/">Your bins</a>
+                        <a href="/bins">Your bins</a>
                     </li>
                     <li>
                         <a href="/shared">Shared with you</a>

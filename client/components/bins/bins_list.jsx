@@ -18,7 +18,7 @@ class BinsLists extends Component {
     renderList() {
         return this.props.bins.map(bin=>{
 
-            const url = `/bins/${bin._id}`;
+            const url = `/bin/${bin._id}`;
 
             return (
                 
