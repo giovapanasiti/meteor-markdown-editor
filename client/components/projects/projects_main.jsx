@@ -6,7 +6,11 @@ import {Tasks} from '../../../imports/collections/tasks';
 import TaskList from '../tasks/tasks-list';
 
 class ProjectsMain extends Component {
-
+    onProjectUpdate(event) {
+        event.preventDefault();
+        console.log('onProjectUpdate');
+        Meteor.call('project.update', this.props.project, this.refs.title.value, this.refs.description.value)    
+    }
   
     render() {
         console.log('this.props',this.props);
@@ -20,8 +24,8 @@ class ProjectsMain extends Component {
             <div className="container">
                 <h2>{this.props.project.title}</h2>
                 <p>{this.props.project.description}</p>
-                <button type="button" className="btn btn-primary btn-lg" data-toggle="modal" data-target="#editProj">
-                Edit Project
+                <button type="button" className="btn btn-primary btn-small btn-sm" data-toggle="modal" data-target="#editProj">
+                    Edit Project
                 </button>
 
                 <hr/>
@@ -40,7 +44,19 @@ class ProjectsMain extends Component {
                                 <h4 className="modal-title" id="myModalLabel">Modal title</h4>
                             </div>
                             <div className="modal-body">
-                                -
+                                <form>
+                                    <div className="form-group">
+                                        <label>Title</label>
+                                        <input type="text" className="form-control" ref="title" required value={this.props.project.title} onChange={this.onProjectUpdate.bind(this)}/>
+                                    </div>
+
+                                    <div className="form-group">
+                                        <label>Description</label>
+                                        <textarea className="form-control" rows="3" ref="description" required value={this.props.project.description} onChange={this.onProjectUpdate.bind(this)}></textarea>
+                                    </div>
+                                    
+                                    <button type="submit" className="btn btn-primary" >Save Project</button>
+                                </form>
                             </div>
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
