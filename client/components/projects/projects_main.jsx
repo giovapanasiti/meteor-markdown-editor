@@ -27,8 +27,9 @@ class ProjectsMain extends Component {
                 <hr/>
 
                 <h2>Tasks</h2>
-                <TaskList projectId={this.props.project._id}/>
-
+                <ul className="list-group">
+                    <TaskList projectId={this.props.project._id}/>
+                </ul>
 
 
                 <div className="modal fade" id="editProj" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel">

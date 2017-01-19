@@ -12,17 +12,31 @@ class TaskList extends Component {
       this.refs.singleTask.value='';
     }
 
+    removeTask(task){
+      if (confirm('Are you sure you want to remove this bin forever?')) {
+    // Save it!
+            Meteor.call('task.remove', task);
+        } else {
+    // Do nothing!
+            return
+        }
+    }
+
     setIsChecked(task, isChecked) {
       console.log('chiamata is check')
        Meteor.call('task.checked', task, isChecked);
     }
 
+
     renderTasks() {
       return this.props.tasks.map(task=>{
         return (
-          <li key={task._id}>
+          <li key={task._id} className="list-group-item">
             <input type="checkbox" checked={task.isChecked} onChange={() => this.setIsChecked(task, task.isChecked)}/>
-            {task.title} - {task.projectId} - {task._id}
+            {task.title}
+            <span className="pull-right">
+              <button className="btn btn-danger" onClick={()=>{this.removeTask(task)}}>X</button>
+            </span>
           </li>
         )
       })

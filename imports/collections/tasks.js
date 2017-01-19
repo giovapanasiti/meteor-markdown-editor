@@ -23,6 +23,9 @@ Meteor.methods({
             }
         });
     },
+    'task.remove': function(task) {
+        return Tasks.remove(task);
+    },
 });
 
 export const Tasks = new Mongo.Collection('tasks');

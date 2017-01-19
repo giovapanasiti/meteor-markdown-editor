@@ -48,7 +48,10 @@ class Header extends Component {
                         <a href="/bins">Your bins</a>
                     </li>
                     <li>
-                        <a href="/shared">Shared with you</a>
+                        <a href="/shared">Shared Bins</a>
+                    </li>
+                    <li>
+                        <a href="/projects">Your Projects</a>
                     </li>
                 </ul>
 
