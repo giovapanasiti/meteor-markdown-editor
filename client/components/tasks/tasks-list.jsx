@@ -50,8 +50,14 @@ class TaskList extends Component {
         
         return(
             <div className="">
-              <input type="text" className="form-control" ref="singleTask" />
-              <button className="btn btn-success" onClick={this.saveTask.bind(this)}>Save</button>
+
+              <div className="input-group">
+                <input type="text" className="form-control" placeholder="Type here your task..." ref="singleTask" />
+                <span className="input-group-btn">
+                  <button className="btn btn-success" type="button" onClick={this.saveTask.bind(this)}>Add</button>
+                </span>
+              </div>
+              
               
               <hr/>
               <ul className="list-group">
