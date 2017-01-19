@@ -43,7 +43,7 @@ class BinsListsMark extends Component {
     render() {
         console.log(this.props.bins);
         return(
-            <div className="container">
+            <div className="">
                 <ul className="list-group">
                     <h2>Your Markdown Bin</h2>
                     {this.renderList()}

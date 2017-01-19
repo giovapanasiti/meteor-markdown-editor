@@ -43,7 +43,7 @@ class BinsLists extends Component {
     render() {
         console.log(this.props.bins);
         return(
-            <div className="container">
+            <div className="">
                 <ul className="list-group">
                     <h2>Your Visual Bin</h2>
                     {this.renderList()}
