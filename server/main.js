@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import {Bins} from '../imports/collections/bins';
+import {BinsMark} from '../imports/collections/bins-mark';
 
 
 Meteor.startup(() => {
@@ -7,6 +8,10 @@ Meteor.startup(() => {
   
   Meteor.publish('bins', function(){
     return Bins.find({ownerId: this.userId});
+  });
+
+  Meteor.publish('binsMark', function(){
+    return BinsMark.find({ownerId: this.userId});
   });
 
   Meteor.publish('sharedBins', function(){
@@ -17,6 +22,22 @@ Meteor.startup(() => {
     const email = user.emails[0].address;
 
     return Bins.find({
+      sharedWith: { $elemMatch: {$eq: email}}
+    });
+    // looks all the different bins we have, look at the sharedWith 
+    // at each. Walk through that array and search which one match "email"
+    
+
+  });
+
+  Meteor.publish('sharedBinsMark', function(){
+    const user = Meteor.users.findOne(this.userId)
+
+    if (!user) {return;}
+
+    const email = user.emails[0].address;
+
+    return BinsMark.find({
       sharedWith: { $elemMatch: {$eq: email}}
     });
     // looks all the different bins we have, look at the sharedWith 

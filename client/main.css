@@ -21,6 +21,24 @@
     margin: 0 10px;
 }*/
 
+.quill-contents .ql-container {
+    min-height: 500px !important;
+    height: auto !important;
+}
+
+.quill {
+    min-height: 500px !important;
+    height: auto !important;
+}
+
+.ql-editor {
+    box-sizing: border-box;
+    min-height: 400px !important;
+    outline: none;
+    tab-size: 2;
+    white-space: pre-wrap;
+}
+
 .button-share {
     position: absolute;
     bottom: 0;

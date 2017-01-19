@@ -17,6 +17,8 @@ class BinsSharedLists extends Component {
 
             return (
                 <div>
+
+                
                     
                     <li className="list-group-item" key={bin._id}>
                     
@@ -42,6 +44,10 @@ class BinsSharedLists extends Component {
         console.log(this.props.bins);
         return(
             <div className="container">
+            <div className="alert alert-danger" role="alert">
+                    <h2>There are some problems</h2>
+                    <p>This feature still not works very good at the moment for the markdown bins. It'll be update soon!</p>
+                </div>
             <ul className="list-group">
                 <h2>Bins Shared with You</h2>
                 {this.renderList()}

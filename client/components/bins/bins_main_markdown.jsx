@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import {createContainer} from 'meteor/react-meteor-data';
-import {Bins } from '../../../imports/collections/bins';
-import BinsEditor from './bins_editor';
+import {BinsMark} from '../../../imports/collections/bins-mark';
+import BinsEditorMark from './bins_editor_mark';
 import BinsViewer from './bins_viewer';
 import BinsShare from './bins_share';
 
-class BinsMain extends Component {
+class BinsMainMarkdown extends Component {
     render(){
 
         if (!this.props.bin) {
@@ -17,13 +17,14 @@ class BinsMain extends Component {
         // console.log(this.props.params.binId)
         /*binId was set in the main.jsx in the router as a param
         
-                <BinsViewer bin={this.props.bin} />
+                
                 
                 */
         return(
             <div>
-                <BinsEditor bin={this.props.bin} />
+                <BinsEditorMark bin={this.props.bin} />
                 <BinsShare bin={this.props.bin}/>
+                <BinsViewer bin={this.props.bin} />
             </div>
         )
     }
@@ -31,8 +32,8 @@ class BinsMain extends Component {
 
 export default createContainer((props)=>{
     const {binId} = props.params;
-    Meteor.subscribe('bins');
-    Meteor.subscribe('sharedBins');
+    Meteor.subscribe('binsMark');
+    Meteor.subscribe('sharedBinsMark');
 
-    return {bin: Bins.findOne(binId)};
-},BinsMain);
+    return {bin: BinsMark.findOne(binId)};
+},BinsMainMarkdown);

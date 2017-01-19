@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 import {createContainer} from 'meteor/react-meteor-data';
-import {Bins} from '../../../imports/collections/bins';
+import {BinsMark} from '../../../imports/collections/bins-mark';
 import {Link} from 'react-router';
 
-class BinsLists extends Component {
+class BinsListsMark extends Component {
     onBinRemove(bin) {
         if (confirm('Are you sure you want to remove this bin forever?')) {
     // Save it!
-            Meteor.call('bins.remove', bin);
+            Meteor.call('binsMark.remove', bin);
         } else {
     // Do nothing!
             return
@@ -16,9 +16,9 @@ class BinsLists extends Component {
     }
 
     renderList() {
-        return this.props.bins.map(bin=>{
+        return this.props.binsMark.map(bin=>{
 
-            const url = `/bins/${bin._id}`;
+            const url = `/markdown/${bin._id}`;
 
             return (
                 
@@ -45,7 +45,7 @@ class BinsLists extends Component {
         return(
             <div className="container">
                 <ul className="list-group">
-                    <h2>Your Visual Bin</h2>
+                    <h2>Your Markdown Bin</h2>
                     {this.renderList()}
                 </ul>
             </div>
@@ -55,7 +55,7 @@ class BinsLists extends Component {
 
 
 export default createContainer( ()=>{ 
-    Meteor.subscribe('bins'); /*this is going to be passed as props*/
+    Meteor.subscribe('binsMark'); /*this is going to be passed as props*/
     // Meteor.subscribe('sharedBins');
-    return { bins: Bins.find().fetch()}
-}, BinsLists )
+    return { binsMark: BinsMark.find().fetch()}
+}, BinsListsMark )

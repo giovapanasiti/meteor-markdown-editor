@@ -7,35 +7,33 @@ import CodeMirror from 'react-codemirror';
 
 import 'codemirror/mode/markdown/markdown';
 
-var ReactQuill = require('react-quill');
 
 
-class BinsEditor extends Component {
+class BinsEditorMark extends Component {
     onEditorChange(content){
-        Meteor.call('bins.update', this.props.bin, content);
+        Meteor.call('binsMark.update', this.props.bin, content);
     }
 
     onTitleChange(content){
-        Meteor.call('bins.update-title', this.props.bin, this.refs.title.value);
+        Meteor.call('binsMark.update-title', this.props.bin, this.refs.title.value);
     }
-
 
     render(){
 
         
         return(
-            <div className="col-xs-12">
+            <div className="col-xs-8">
                    <div className="form-group">
                         <label >Title:</label>
                         <input className="form-control" ref="title" onChange={this.onTitleChange.bind(this)} value={this.props.bin.title}/>
                    </div>
 
-                   <ReactQuill value={this.props.bin.content} onChange={this.onEditorChange.bind(this)} theme="snow"/>
+                   <CodeMirror value={this.props.bin.content} onChange={this.onEditorChange.bind(this)} options={{mode: 'markdown', lineNumbers: false }} className="height-editor"/>
 
-      
+                  
             </div>
         );
     }
 }
 
-export default BinsEditor;
+export default BinsEditorMark;

@@ -13,6 +13,23 @@ class Header extends Component {
             browserHistory.push(`/bins/${binId}`)
         });    
     }
+
+    onMarkClick(event) {
+        event.preventDefault();
+
+        Meteor.call('binsMark.insert', (error, binId)=>{
+            
+            // react router redirect:
+            browserHistory.push(`/markdown/${binId}`)
+        });    
+    }
+
+    /*<li>
+                        <a href="#" onClick={this.onBinClick.bind(this)} className="" title="create new" alt="create new">
+                            <i className="glyphicon glyphicon-plus-sign btn-success btn btn-circle"></i>
+                        </a>
+                    </li>
+*/
     
     render() {
         return(
@@ -35,11 +52,24 @@ class Header extends Component {
                     </li>
                 </ul>
 
-                <ul className="navbar-right nav navbar-nav">
-                    <li>
-                        <a href="#" onClick={this.onBinClick.bind(this)} className="" title="create new" alt="create new">
-                            <i className="glyphicon glyphicon-plus-sign btn-success btn btn-circle"></i>
-                        </a>
+
+                <ul className="nav navbar-nav navbar-right">
+                    <li className="dropdown">
+                    <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Create New <span className="caret"></span></a>
+                    <ul className="dropdown-menu">
+                        <li>
+                            <a href="#" onClick={this.onBinClick.bind(this)} className="" title="create new" alt="create new">
+                                <i className="glyphicon glyphicon-plus-sign btn-success btn btn-circle"></i> New Visual
+                            </a>
+                        </li>
+                        <li role="separator" className="divider"></li>
+                        <li>
+                            <a href="#" onClick={this.onMarkClick.bind(this)} className="" title="create new" alt="create new">
+                                <i className="glyphicon glyphicon-plus-sign btn-success btn btn-circle"></i> New Markdown
+                            </a>
+                        </li>
+                        
+                    </ul>
                     </li>
                 </ul>
             </div>
