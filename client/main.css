@@ -161,4 +161,5 @@
 .child {
     margin: 1em;
     flex: 1 0 25%;
+    max-width: 30%;
 }

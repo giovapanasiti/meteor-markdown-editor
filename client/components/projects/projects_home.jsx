@@ -38,6 +38,8 @@ class ProjectsHome extends Component {
             Meteor.call('project.insert', this.refs.title.value, this.refs.description.value);
              $('#newProject').modal('hide') 
              sweetAlert("Project Created!", "You can start working on it now!!","success");
+             this.refs.title.value='';
+             this.refs.description.value="";
         }
         
          

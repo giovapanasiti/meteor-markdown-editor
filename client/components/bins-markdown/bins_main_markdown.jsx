@@ -12,14 +12,6 @@ class BinsMainMarkdown extends Component {
             return <div>Loading...</div>
         }
 
-        /*The above code is to render the component BinsEditor only once we have this.props.bin*/
-
-        // console.log(this.props.params.binId)
-        /*binId was set in the main.jsx in the router as a param
-        
-                
-                
-                */
         return(
             <div>
                 <BinsEditorMark bin={this.props.bin} />
