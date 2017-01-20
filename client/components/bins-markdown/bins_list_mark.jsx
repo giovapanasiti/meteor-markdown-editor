@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {createContainer} from 'meteor/react-meteor-data';
 import {BinsMark} from '../../../imports/collections/bins-mark';
 import {Link} from 'react-router';
+import {markdown} from 'markdown';
 
 class BinsListsMark extends Component {
     onBinRemove(bin) {
@@ -21,22 +22,41 @@ class BinsListsMark extends Component {
             const url = `/markdown/${bin._id}`;
 
             return (
-                
-                    <li className="list-group-item" key={bin._id}>
-                    
-                    <strong>{bin.title}  </strong> 
-                    <span className="label label-success">{bin._id}</span>    
-                        
+                <div className="panel panel-default" key={bin._id}>
+                    <div className="panel-heading"><h6>{bin.title}</h6></div>
+                    <div className="panel-body">
                         <span className="pull-right btn-group">
-                            <button className="btn btn-danger" onClick={()=>{this.onBinRemove(bin)}}>
+                            <button className="btn btn-danger btn-sm btn-raised" onClick={()=>{this.onBinRemove(bin)}}>
                                 Remove
                             </button>
-                            <Link to={url} className="btn btn-primary">
-                                Edit <i className="glyphicon glyphicon-pencil"></i>
+                            <Link to={url} className="btn btn-primary btn-raised btn-sm">
+                               Edit <i className="glyphicon glyphicon-pencil"></i>
                             </Link>
+                            <button type="button" className="btn btn-info btn-raised btn-sm" data-toggle="modal" data-target={`#modal${bin._id}`}>
+                                 Read 
+                            </button>
                         </span>
-                    </li>
-                
+                    </div>
+
+                    <div className="modal fade" id={`modal${bin._id}`} tabIndex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div className="modal-dialog" role="document">
+                            <div className="modal-content">
+                            <div className="modal-header">
+                                <button type="button" className="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 className="modal-title" id="myModalLabel">{bin.title}</h4>
+                            </div>
+                            
+                            <div className="modal-body">
+                                <div dangerouslySetInnerHTML={{ __html: markdown.toHTML(bin.content) }} ></div>
+                            </div>
+                            <div className="modal-footer">
+                                <button type="button" className="btn btn-raised btn-primary" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">Close</span></button>
+                            </div>
+                            
+                            </div>
+                        </div>
+                    </div>  
+                </div> 
             )
         })
     }
