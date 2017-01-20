@@ -48,20 +48,20 @@ class Header extends Component {
                         </a>
                     </li>
                     <li>
-                        <Link to="/bins"><i className="sidebar-icon md-inbox"></i>Your bins</Link>
+                        <Link to="/bins"><i className="sidebar-icon md-inbox"></i>Your Notes</Link>
                     </li>
                     <li>
-                        <Link to="/shared">Shared Bins</Link>
+                        <Link to="/shared">Shared Notes</Link>
                     </li>
                     <li>
                         <Link to="/projects">Your Projects</Link>
                     </li>
                     <li className="dropdown">
-                        <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Create New Bin<span className="caret"></span></a>
+                        <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">New Note<span className="caret"></span></a>
                         <ul className="dropdown-menu">
                             <li>
                                 <a href="#" onClick={this.onBinClick.bind(this)} className="" title="create new" alt="create new">
-                                    <i className="glyphicon glyphicon-plus-sign btn-success btn btn-circle"></i> New Visual
+                                    <i className="glyphicon glyphicon-plus-sign btn-success btn btn-circle"></i> New Visual 
                                 </a>
                             </li>
                             <li role="separator" className="divider"></li>
