@@ -104,3 +104,13 @@
 
 .cm-s-default .CodeMirror-activeline-background { background: #202020; }
 .cm-s-default .CodeMirror-matchingbracket { text-decoration: underline; color: white !important; }
+
+
+
+
+.sidebar-app {
+    margin: 0 !important;
+    padding-left: 0px !important;
+}
+
+

@@ -7,14 +7,11 @@ import BinsSharedLists from './bins/bins_shared';
 class NotesHome extends Component {
     render() {
         return(
-            <div >
-                <div className="">
-                    <div className="col-sm-6"><BinsList /></div>
-                    <div className="col-sm-6"><BinsListMark /></div>
-                </div>
-                <hr/>
+            <div className="col-xs-12">
+                <div className="col-sm-6"><BinsList /></div>
+                <div className="col-sm-6"><BinsListMark /></div>
                 
-
+                <hr/>
             </div>
         )
     }

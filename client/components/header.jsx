@@ -29,23 +29,26 @@ class Header extends Component {
                             <i className="glyphicon glyphicon-plus-sign btn-success btn btn-circle"></i>
                         </a>
                     </li>
+
+
+        
 */
     
     render() {
         return(
-            <nav className="navbar-default nav">
-            <div className="container-fluid">
-                <div className="navbar-header">
-                    <Link to="/" className="navbar-brand">Open Collaboration</Link>
-                </div>
-                <ul className="nav navbar-nav">
+                <ul className="sidebar-nav">
+                    <li className="sidebar-brand">
+                        <Link to="/">
+                            Daily Tool
+                        </Link>
+                    </li>
                     <li>
-                        <a>
+                        <a className="sidebar-brand">
                             <Accounts />
                         </a>
                     </li>
                     <li>
-                        <Link to="/bins">Your bins</Link>
+                        <Link to="/bins"><i className="sidebar-icon md-inbox"></i>Your bins</Link>
                     </li>
                     <li>
                         <Link to="/shared">Shared Bins</Link>
@@ -53,30 +56,24 @@ class Header extends Component {
                     <li>
                         <Link to="/projects">Your Projects</Link>
                     </li>
-                </ul>
-
-
-                <ul className="nav navbar-nav navbar-right">
                     <li className="dropdown">
-                    <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Create New <span className="caret"></span></a>
-                    <ul className="dropdown-menu">
-                        <li>
-                            <a href="#" onClick={this.onBinClick.bind(this)} className="" title="create new" alt="create new">
-                                <i className="glyphicon glyphicon-plus-sign btn-success btn btn-circle"></i> New Visual
-                            </a>
-                        </li>
-                        <li role="separator" className="divider"></li>
-                        <li>
-                            <a href="#" onClick={this.onMarkClick.bind(this)} className="" title="create new" alt="create new">
-                                <i className="glyphicon glyphicon-plus-sign btn-success btn btn-circle"></i> New Markdown
-                            </a>
-                        </li>
-                        
-                    </ul>
+                        <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Create New Bin<span className="caret"></span></a>
+                        <ul className="dropdown-menu">
+                            <li>
+                                <a href="#" onClick={this.onBinClick.bind(this)} className="" title="create new" alt="create new">
+                                    <i className="glyphicon glyphicon-plus-sign btn-success btn btn-circle"></i> New Visual
+                                </a>
+                            </li>
+                            <li role="separator" className="divider"></li>
+                            <li>
+                                <a href="#" onClick={this.onMarkClick.bind(this)} className="" title="create new" alt="create new">
+                                    <i className="glyphicon glyphicon-plus-sign btn-success btn btn-circle"></i> New Markdown
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
-            </div>
-            </nav>
+
         );
     }
 }
