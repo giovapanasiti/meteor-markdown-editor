@@ -18,6 +18,7 @@ caching-html-compiler@1.1.0
 callback-hook@1.0.10
 check@1.2.4
 coffeescript@1.0.17
+cosmos:browserify@0.5.1
 dburles:collection-helpers@1.1.0
 ddp@1.2.5
 ddp-client@1.2.9
@@ -26,6 +27,8 @@ ddp-rate-limiter@1.0.6
 ddp-server@1.2.10
 deps@1.0.12
 diff-sequence@1.0.7
+djedi:sanitize-html@1.11.3
+djedi:sanitize-html-client@1.11.3
 ecmascript@0.6.1
 ecmascript-runtime@0.3.15
 ejson@1.0.13
@@ -34,6 +37,7 @@ es5-shim@4.6.15
 fastclick@1.0.13
 fezvrasta:bootstrap-material-design@0.5.9
 fortawesome:fontawesome@4.7.0
+froala:editor@2.4.0
 geojson-utils@1.0.10
 hot-code-push@1.0.4
 html-tools@1.0.11
@@ -84,6 +88,7 @@ spacebars-compiler@1.1.0
 srp@1.0.10
 standard-minifier-css@1.3.2
 standard-minifier-js@1.2.1
+summernote:summernote@0.8.1
 templating@1.3.0
 templating-compiler@1.3.0
 templating-runtime@1.3.0

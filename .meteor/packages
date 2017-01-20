@@ -29,7 +29,12 @@ matb33:collection-hooks
 
 dburles:collection-helpers
 fortawesome:fontawesome
-
+froala:editor
 
 fezvrasta:bootstrap-material-design
 useraccounts:materialize
+summernote:summernote
+
+djedi:sanitize-html
+
+djedi:sanitize-html-client
