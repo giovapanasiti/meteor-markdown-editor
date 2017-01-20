@@ -21,7 +21,7 @@ class ProjectsMain extends Component {
         }
         
         return(
-            <div className="container">
+            <div className="">
                 <h2>{this.props.project.title}</h2>
                 <p>{this.props.project.description}</p>
                 <button type="button" className="btn btn-info btn-medium btn-md btn-raised btn-fab btn-fab-mini" id="btn-new-project" data-toggle="modal" data-target="#editProj">
@@ -30,10 +30,10 @@ class ProjectsMain extends Component {
 
                 <hr/>
 
-                <h2>Tasks</h2>
-                <ul className="list-group">
-                    <TaskList projectId={this.props.project._id}/>
-                </ul>
+                
+                
+                <TaskList projectId={this.props.project._id}/>
+                
 
 
                 <div className="modal fade" id="editProj" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel">

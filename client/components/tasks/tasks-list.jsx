@@ -3,6 +3,8 @@ import {createContainer} from 'meteor/react-meteor-data';
 import {Projects } from '../../../imports/collections/projects';
 import {Link} from 'react-router';
 import {Tasks} from '../../../imports/collections/tasks';
+import SingleTask from './single-task';
+import SingleTaskDone from './single-task-done';
 
 class TaskList extends Component {
 
@@ -38,18 +40,9 @@ class TaskList extends Component {
         if (task.isChecked) {
           return
         } else {
-        return (
-          <li key={task._id} className="list-group-item">
-            <input type="checkbox" checked={task.isChecked} onChange={() => this.setIsChecked(task, task.isChecked)}/>
-            {task.title}
-              <span className="pull-right">
-                <div className="btn-group" role="group" aria-label="...">
-                  <button className="btn btn-success" type="button"></button>
-                  <button className="btn btn-danger btn-raised " onClick={()=>{this.removeTask(task)}}>X</button>
-                </div>
-              </span>
-          </li>
-        )
+          return (
+            <SingleTask task={task} key={task._id}/>
+          )
         }
       });
     }
@@ -60,16 +53,7 @@ class TaskList extends Component {
           return
         } else {
         return (
-          <li key={task._id} className="list-group-item">
-            <input type="checkbox" checked={task.isChecked} onChange={() => this.setIsChecked(task, task.isChecked)}/>
-            <del className="">{task.title}</del>
-              <span className="pull-right">
-                <div className="btn-group" role="group" aria-label="...">
-                  <button className="btn btn-success" type="button"></button>
-                  <button className="btn btn-danger btn-raised " onClick={()=>{this.removeTask(task)}}>X</button>
-                </div>
-              </span>
-          </li>
+          <SingleTaskDone task={task} key={task._id}/>
         )
         }
       });
@@ -83,27 +67,34 @@ class TaskList extends Component {
         
         return(
             <div className="">
-            <form onSubmit={this.saveTask.bind(this)}>
-              <div className="input-group">
-                <input type="text" className="form-control" placeholder="Type here your task..." ref="singleTask" />
-                <span className="input-group-btn">
-                  <button className="btn btn-success" type="button" onClick={this.saveTask.bind(this)}>Add</button>
-                </span>
-              </div>
-              </form>
-              
-              <hr/>
-              <h4>Todo:</h4>
-              <ul className="list-group">
-                {this.renderTasks()}
-              </ul>
 
-              <hr/>
-              <h4>Done:</h4>
-              <ul className="list-group">
+            <div className="col-md-6">
+              <div className="well task-list-well">
+                <h2>Todo:</h2>
+                <form onSubmit={this.saveTask.bind(this)}>
+                  <div className="input-group">
+                    <input type="text" className="form-control" placeholder="Type here your task..." ref="singleTask" />
+                    <span className="input-group-btn">
+                      <button className="btn btn-success btn-raised" type="button" onClick={this.saveTask.bind(this)}>Add</button>
+                    </span>
+                  </div>
+                </form>
+
+                {this.renderTasks()}
+              </div>
+
+              <div className="well task-list-well">
+                <h4>Done:</h4>
                 {this.renderTasksDone()}
-              </ul>
+              </div>
+            </div>
+
+            <div className="col-md-6">
               
+            </div>
+              <hr/>
+              
+
             </div>
         )
     }
