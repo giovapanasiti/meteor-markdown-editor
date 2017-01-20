@@ -4,7 +4,8 @@ import {Projects } from '../../../imports/collections/projects';
 import {Link} from 'react-router';
 import {Tasks} from '../../../imports/collections/tasks';
 import SingleTask from './single-task';
-import SingleTaskDone from './single-task-done';
+// import SingleTaskDone from './single-task-done';
+import TaskDetails from './task-details';
 
 class TaskList extends Component {
 
@@ -53,7 +54,7 @@ class TaskList extends Component {
           return
         } else {
         return (
-          <SingleTaskDone task={task} key={task._id}/>
+          <SingleTask task={task} key={task._id}/>
         )
         }
       });

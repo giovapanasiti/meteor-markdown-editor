@@ -3,6 +3,8 @@ import {createContainer} from 'meteor/react-meteor-data';
 import {Projects } from '../../../imports/collections/projects';
 import {Link} from 'react-router';
 import {Tasks} from '../../../imports/collections/tasks';
+import TaskDetails from './task-details'; 
+
 
 class SingleTask extends Component {
 
@@ -10,16 +12,6 @@ class SingleTask extends Component {
       e.preventDefault();
       Meteor.call('task.insert', this.refs.singleTask.value, this.props.projectId);
       this.refs.singleTask.value='';
-    }
-
-    saveTaskEnter(e){
-      e.preventDefault();
-      console.log(e)
-      if(e.keyCode == 13){
-             Meteor.call('task.insert', this.refs.singleTask.value, this.props.projectId);
-            this.refs.singleTask.value='';
-         }
-     
     }
 
     removeTask(task){
@@ -50,7 +42,11 @@ class SingleTask extends Component {
                               onChange={() => this.setIsChecked(task, task.isChecked)} 
                               name={`task-${task._id}`}/>
                   <span className="checkbox-material"><span className="check"></span> </span>
-                  {task.title}
+                  {task.isChecked ? (
+                      <del>{task.title}</del>
+                    ) : (
+                      <span>{task.title}</span>
+                    )}
                 </label>
               </div>
          </div>

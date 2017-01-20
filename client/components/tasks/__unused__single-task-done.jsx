@@ -66,10 +66,10 @@ class SingleTaskDone extends Component {
                   </div>
                 </li> 
 
-<label className="btn btn-default">
-				<input type="checkbox" autocomplete="off">
-				<span className="glyphicon glyphicon-ok"></span>
-			</label>
+          <label className="btn btn-default">
+          <input type="checkbox" autocomplete="off">
+          <span className="glyphicon glyphicon-ok"></span>
+          </label>
 
         */
         
