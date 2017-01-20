@@ -9,12 +9,14 @@ export default (props)=> {
                 <Header />  
             </div>
             <div className="page-content-wrapper">
-                <div class="container-fluid">
-                    <div class="row">
+                <div className="container-fluid">
+                    <div className="row">
                         {props.children}
                     </div>
                  </div>
             </div>
+
+            
         </div>
     );
 }

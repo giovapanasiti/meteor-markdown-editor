@@ -28,6 +28,8 @@ aldeed:simple-schema
 matb33:collection-hooks
 
 dburles:collection-helpers
+fortawesome:fontawesome
+
 
 fezvrasta:bootstrap-material-design
 useraccounts:materialize

@@ -8,4 +8,12 @@
     <div class="render-target">
         
     </div>
+
+    <a class="btn btn-default" id="menu-toggle" ><i class="fa fa-bars" aria-hidden="true"></i></a>
+    <script>
+        $("#menu-toggle").click(function(e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+    </script>
 </body>
