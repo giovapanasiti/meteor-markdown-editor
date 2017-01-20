@@ -24,8 +24,8 @@ class ProjectsMain extends Component {
             <div className="container">
                 <h2>{this.props.project.title}</h2>
                 <p>{this.props.project.description}</p>
-                <button type="button" className="btn btn-primary btn-small btn-sm" data-toggle="modal" data-target="#editProj">
-                    Edit Project
+                <button type="button" className="btn btn-info btn-medium btn-md btn-raised btn-fab btn-fab-mini" id="btn-new-project" data-toggle="modal" data-target="#editProj">
+                    <i className="glyphicon glyphicon-pencil"></i>
                 </button>
 
                 <hr/>

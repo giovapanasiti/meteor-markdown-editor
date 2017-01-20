@@ -6,13 +6,21 @@ import {markdown} from 'markdown';
 
 class BinsListsMark extends Component {
     onBinRemove(bin) {
-        if (confirm('Are you sure you want to remove this bin forever?')) {
-    // Save it!
-            Meteor.call('binsMark.remove', bin);
-        } else {
-    // Do nothing!
-            return
-        }
+        new Confirmation({
+            message: "Are you sure ?",
+            title: "Confirmation",
+            cancelText: "Cancel",
+            okText: "I'm sure",
+            success: false, // whether the button should be green or red
+            focus: "cancel" // which button to autofocus, "cancel" (default) or "ok", or "none"
+            }, function (ok) {
+                if (ok) {
+                    Meteor.call('binsMark.remove', bin);
+                    sweetAlert("Delete confirm!", "You Deleted the Note", "success");   
+                } else { return; }
+            // ok is true if the user clicked on "ok", false otherwise
+                
+            });
         
     }
 

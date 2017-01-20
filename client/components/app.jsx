@@ -10,7 +10,7 @@ export default (props)=> {
             </div>
             <div className="page-content-wrapper">
                 <div className="container-fluid">
-                    <div className="row">
+                    <div className="">
                         {props.children}
                     </div>
                  </div>

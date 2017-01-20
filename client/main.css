@@ -114,3 +114,51 @@
 }
 
 
+.hidden {
+    display: none !important;
+}
+
+#btn-new-project {
+    position: fixed;
+    /*border-radius: 50%;*/
+    bottom: 10px;
+    right: 10px;
+    font-size: 20px;
+}
+
+.Grid {
+  display: flex;
+}
+
+.Grid-cell {
+    flex: 1;
+}
+
+
+/*.row-proj {
+ -moz-column-width: 21em;
+ -webkit-column-width: 21em;
+ -moz-column-gap: 1em;
+ -webkit-column-gap:1em; 
+}
+
+.item {
+ display: inline-block;
+ padding:  .25rem;
+ width:  100%; 
+}
+
+.panel-proj {
+ position:relative;
+ display: block;
+}
+*/
+.parent {
+    display: flex;
+    flex-flow: wrap;
+}
+
+.child {
+    margin: 1em;
+    flex: 1 0 25%;
+}
